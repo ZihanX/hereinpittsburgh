@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8" />
+        <title>Here In Pittsburgh</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
+    </head>
+    
+    <body>
+        
+    <div class="ui grid">
+        <!--big screen header-->
+        <div class="computer tablet only row">
+            <div class="ui top fixed secondary pointing menu" style="background-color: white; opacity: 50%;">
+                <div class="ui container">
+                    <div class="item">
+                        <i class="code icon" style="font-size: 2em"></i>
+                        <a href="/">HereInPittsburgh</a>
+                    </div>
+                    <a class="item" href="/items/category=sale">On Sale</a>
+                    <a class="item" href="/items/category=housing">Housing</a>
+                    <a class="item" href="/items/category=events">Events</a>
+                    <div class="right menu">
+                        <div class="item">
+                          <form class="ui transparent icon input" action="/items/search">
+                            <input type="text" placeholder="Search ..." name="q">
+                            <button type="submit" style="border: none; background: none;"><i class="search link icon"></i></button>
+                          </form>
+                        </div>
+                        <% if(!currentUser) { %>
+                            <a class="item" href="/login">Login</a>
+                            <a class="item" href="/register">SignUp</a>
+                        <% } else { %>
+                            <a class="item" href="/myprofile/<%= currentUser._id %>"><%= currentUser.personal_name %></a>
+                            <a class="item" href="/logout">Logout</a>
+                        <% } %>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        
+        <!--mobile header-->
+        <div class="mobile only row">
+            <div class="ui fixed inverted navbar menu">
+                <div class="item">
+                    <i class="code icon" style="font-size: 2em"></i>
+                    <a href="/">HereInPittsburgh</a>
+                </div>
+                <div class="right menu open">
+                    <a href="" class="menu item">
+                        <i class="content icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ui fixed vertical navbar menu" style="margin-top: 53px; width: 100%; display: none">
+                <a class="item" href="/items/category=sale" style="margin-left: 15px">On Sale</a>
+                <a class="item" href="/items/category=housing" style="margin-left: 15px">Housing</a>
+                <a class="item" href="/items/category=events" style="margin-left: 15px">Events</a>
+                <div class="item menu">
+                    <div class="item">
+                        <form class="ui transparent icon input" action="/items/search">
+                            <input type="text" placeholder="Search ..." name="q">
+                            <button type="submit" style="border: none; background: none;"><i class="search link icon"></i></button>
+                        </form>
+                    </div>
+                    <% if(!currentUser) { %>
+                        <a class="item" href="/login">Login</a>
+                        <a class="item" href="/register">SignUp</a>
+                    <% } else { %>
+                        <a class="item" href="/myprofile/<%= currentUser._id %>"><%= currentUser.personal_name %></a>
+                        <a class="item" href="/logout">LogOut</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+              $('.right.menu.open').on("click",function(e){
+                e.preventDefault();
+                $('.ui.vertical.menu').toggle();
+              });
+            });
+        </script>
+        
+    </div>
+       
+    <!--flash-->
+    <div class="ui container" style="margin-top: 70px">
+        <% if(error && error.length > 0) { %>
+            <div class="ui negative message">
+              <div class="header">
+                <%= error %>
+              </div>
+              <p>Refresh the page to make it go away.</p>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0) { %>
+            <div class="ui positive message">
+                <div class="header">
+                    <%= success %>
+                </div>
+                <p>Refresh the page to make it go away.</p>
+            </div>
+        <% } %>
+    </div>
+        
+                
