@@ -1,9 +1,11 @@
 =======vv13_d========
-Aug.02 deploying
+Aug.02  deploying
+        refine everthing
+        two languages
+        
 
 
 TODO: 
-* two languages
 * cur_item_count on show page*
 * message when uploading the images: "please be patient"*
 * "are you sure you want to ...?": 1)delete*
