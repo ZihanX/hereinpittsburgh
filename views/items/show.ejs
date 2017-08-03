@@ -12,16 +12,16 @@
   <!--category-->
   <div style="display:inline;">
     <% if(item.category == "Sale") { %>
-      <i class="shop large icon" style="margin-bottom: 10px"></i>
+      <i class="shop large icon" style="margin-bottom: 7px"></i>
     <% }else if(item.category == "Housing") {%>
-      <i class="building outline large icon" style="margin-bottom: 10px"></i>
+      <i class="building outline large icon" style="margin-bottom: 7px"></i>
     <% } else { %>
-      <i class="ticket large icon" style="margin-bottom: 10px"></i>
+      <i class="ticket large icon" style="margin-bottom: 7px"></i>
     <% } %>
   </div>
     
   <!--name-->
-  <h2 style="display:inline"><%= item.name %></h2>
+  <h2 style="display:inline; font-size: 20px"><%= item.name %></h2>
   
   <!--price-->
   <% if(item.category == "Sale" || item.category == "Housing") { %>
