@@ -110,5 +110,9 @@ router.get("/logout", function(req, res) {
     }
 });
 
+router.get("/contact_us", function(req, res) {
+    res.render("partials/contact_us"); 
+});
+
 
 module.exports = router;

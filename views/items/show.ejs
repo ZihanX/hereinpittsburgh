@@ -40,7 +40,7 @@
       </a>
       <% if(user.items.length > 1) { %>
         <a class="ui left pointing teal basic label" href="/profile/<%= user._id %>">
-          See all <%=user.items.length%> items this user owns
+          查看此用户的其他<%=user.items.length%>个posts
         </a>
       <% } %>
     <% } %>
@@ -55,17 +55,17 @@
       <% } ); %>
     <% } %>
     <% if(currentUser && flag) { %>
-      Remove From Favorite
+      <span style="color: grey">取消收藏</span>
       <a href="/items/<%= item._id %>/favorite-off"><i class="star big icon"></i></a>
     <% } else { %>
-      Add To Favorite
+      <span style="color: grey">添加收藏</span>
       <a href="/items/<%= item._id %>/favorite-on"><i class="empty star big icon"></i></a>
     <% } %>
   </div>
   
   <!--date_crt-->
   <div class="detail" style="font-size: 14px; color: grey; margin-top: 15px">
-    Created On: 
+    创建于： 
     <% var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; %>
     <%= month[item.date_crt.getMonth()] %> - <%= item.date_crt.getDate() %> - <%= item.date_crt.getFullYear() %>
   </div>
@@ -76,7 +76,7 @@
       <i class="image icon"></i>
       Images
     </h4>
-    <p style="text-align: center; color: grey">Click to see full images</p>
+    <p style="text-align: center; color: grey">点击查看大图. CLICK TO SEE FULL IMAGES.</p>
     <div style="margin-left: 25px">
       <section>
         <div class="ui link cards">
@@ -155,7 +155,7 @@
         <!--orgUrl-->
         <% if(item.orgUrl != null && item.orgUrl != "") { %>
           <tr>
-            <td>Reference URL</td>
+            <td>References</td>
             <td><a href="<%= item.orgUrl %>" target="_blank"><%= item.orgUrl %></a></td>
           </tr>
         <% } %>
@@ -180,7 +180,7 @@
   <!--edit-->
   <% if(currentUser && item.author.id.equals(currentUser._id)){ %>
     <div style="width: 200px; margin: 30px auto">
-      <a class="ui orange button" href="/items/<%= item._id %>/edit" style="width: 200px">Edit This Item</a>
+      <a class="ui orange button" href="/items/<%= item._id %>/edit" style="width: 200px">Edit - 编辑</a>
     </div>
   <% } %>
   
@@ -283,10 +283,10 @@
   <div style="margin-top: 30px">
     <% if(currentUser && item.author.id.equals(currentUser._id)){ %>
         <form id="delete-form" action="/items/<%= item._id %>?_method=DELETE" method="POST">
-            <div style="width: 200px; margin: 30px auto">
-              <button class="ui red button" style="width: 200px">Delete</button>
-              <p style="text-align: center">this operation is irreversible!!!</p>
+            <div style="width: 200px; margin: 30px auto; margin-bottom: 10px">
+              <button class="ui red button" style="width: 200px">Delete - 删除</button>
             </div>
+            <p style="text-align: center; color: grey">This operation is irreversible - 此操作不可逆</p>
         </form>
     <% } %>
   </div>

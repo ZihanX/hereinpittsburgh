@@ -101,17 +101,14 @@ router.get("/items/search", function(req, res) {
 //NEW ITEM
 router.get("/items/new_sale", middleware.isLoggedIn, function(req, res){
     req.session.catename = "Sale"; //RECORD THE catename
-    // req.flash("success", "Please upload imges first.");
     res.render("items/new", {imgs: "not exist", uploadDone: false, catename: "Sale"});
 });
 router.get("/items/new_housing", middleware.isLoggedIn, function(req, res){
     req.session.catename = "Housing"; //RECORD THE catename
-    // req.flash("success", "Please upload imges first.");
     res.render("items/new", {imgs: "not exist", uploadDone: false, catename: "Housing"});
 });
 router.get("/items/new_events", middleware.isLoggedIn, function(req, res){
     req.session.catename = "Events"; //RECORD THE catename
-    // req.flash("success", "Please upload imges first.");
     res.render("items/new", {imgs: "not exist", uploadDone: false, catename: "Events"});
 });
 //NEW UPLOADING
@@ -172,7 +169,7 @@ var editImgs = function(files, imgs, res, req) {
     var countStart = imgs.urls.length + 1;
     var countEnd = imgs.urls.length + files.length;
     if(countEnd > 9) {
-        req.flash("error", "Sorry, you cannot upload images more than 9 times. Please start again");
+        req.flash("error", "抱歉，您不能上传图片超过9次，请重新开始.");
         return res.redirect("back");
     }
     var s3Path = [];
@@ -366,7 +363,7 @@ router.put("/items/:id", middleware.checkItemOwnerShip, function(req, res) {
         } else {
             updatedItem.date_update = currentTime();
             updatedItem.save();
-            req.flash("success", "The item has been successfully edited");
+            req.flash("success", "编辑成功. The item has been successfully edited");
             res.redirect("/items/" + req.params.id);
         }
     });
