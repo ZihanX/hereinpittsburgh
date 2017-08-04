@@ -29,6 +29,7 @@
                     <a class="item" style="color: white; padding-bottom: 8px; padding-left: 10px; padding-right: 10px" href="/items/category=sale"><i class="shop icon"></i>On Sale</a>
                     <a class="item" style="color: white; padding-bottom: 8px; padding-left: 10px; padding-right: 10px" href="/items/category=housing"><i class="building outline icon"></i>Housing</a>
                     <a class="item" style="color: white; padding-bottom: 8px; padding-left: 10px; padding-right: 10px" href="/items/category=events"><i class="ticket icon"></i>Events</a>
+                    <a class="item" style="color: white; padding-bottom: 8px; padding-left: 10px; padding-right: 10px" href="/contact_us"><i class="send icon"></i>About Us</a>
                     <div class="right menu">
                         <div class="item" style="padding-left: 10px; padding-right: 10px; padding-bottom: 6px">
                           <form style="margin-bottom: 0" class="ui transparent icon input" action="/items/search">
@@ -62,10 +63,11 @@
                     </a>
                 </div>
             </div>
-            <div class="ui fixed vertical navbar menu" style="margin-top: 53px; width: 100%; display: none">
+            <div class="ui fixed vertical navbar menu" style="margin-top: 64px; width: 100%; display: none">
                 <a class="item" href="/items/category=sale"><span style="margin-left: 15px"><i class="shop icon"></i>On Sale</span></a>
                 <a class="item" href="/items/category=housing"><span style="margin-left: 15px"><i class="building outline icon"></i>Housing</span></a>
                 <a class="item" href="/items/category=events"><span style="margin-left: 15px"><i class="ticket icon"></i>Events</span></a>
+                <a class="item" href="/contact_us"><span style="margin-left: 15px"><i class="send icon"></i>About Us</span></a>
                 <div class="item menu">
                     <div class="item">
                         <form class="ui transparent icon input" action="/items/search">
@@ -101,7 +103,6 @@
               <div class="header">
                 <%= error %>
               </div>
-              <p>Refresh the page to make it go away.</p>
             </div>
         <% } %>
         <% if(success && success.length > 0) { %>
@@ -109,7 +110,6 @@
                 <div class="header">
                     <%= success %>
                 </div>
-                <p>Refresh the page to make it go away.</p>
             </div>
         <% } %>
     </div>
