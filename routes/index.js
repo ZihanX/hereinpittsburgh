@@ -111,6 +111,7 @@ router.get("/logout", function(req, res) {
 });
 
 router.get("/contact_us", function(req, res) {
+    req.session.returnTo = req.path; //RECORD THE PATH
     res.render("partials/contact_us"); 
 });
 

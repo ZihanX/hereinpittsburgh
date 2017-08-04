@@ -1,6 +1,24 @@
 <% include header %>
 
-<div style="max-width: 600px; margin: 30px auto; padding-top: 50px; padding-left: 5px; padding-right: 5px; min-height: 60%">
+    <!--flash-->
+    <div class="ui container" style="margin-top: 20px">
+        <% if(error && error.length > 0) { %>
+            <div class="ui negative message">
+              <div class="header">
+                <%= error %>
+              </div>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0) { %>
+            <div class="ui positive message">
+                <div class="header">
+                    <%= success %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+<div style="max-width: 600px; margin: 30px auto; padding-top: 30px; padding-left: 5px; padding-right: 5px; min-height: 60%">
     
     <h4 class="ui horizontal divider header">
       <i class="send icon"></i>
