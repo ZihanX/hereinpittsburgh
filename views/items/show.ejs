@@ -149,7 +149,13 @@
         <% if(item.category == "Sale") { %>
           <tr>
             <td>Delivery</td>
-            <td><%= item.delivery %></td>
+            <% if(item.delivery == "no") { %>
+              <td>No - 需要自取</td>
+            <% } else if(item.delivery == "yes") { %>
+              <td>Yes - 送货上门</td>
+            <% } else { %>
+              <td>Dependable - 视情况而定</td>
+            <% } %>
           </tr>
         <% } %>
         <!--orgUrl-->
@@ -213,7 +219,7 @@
   <% } %>
   <!--is end-->
   <div class="ui large red left pointing label" style="margin-top: 10px">
-    This item has been sold
+    This post has ended - 已结束
   </div>
   <!--author-->
   <div style="margin-top: 10px">

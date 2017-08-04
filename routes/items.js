@@ -363,7 +363,7 @@ router.put("/items/:id", middleware.checkItemOwnerShip, function(req, res) {
         } else {
             updatedItem.date_update = currentTime();
             updatedItem.save();
-            req.flash("success", "编辑成功. The item has been successfully edited");
+            req.flash("success", "编辑成功. The item has been successfully edited.");
             res.redirect("/items/" + req.params.id);
         }
     });

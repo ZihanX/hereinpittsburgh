@@ -2,10 +2,12 @@
 Aug.02  deploying
         refine everthing
         two languages
-        
-
+Aug.03  
 
 TODO: 
+* footer放二维码 邮箱
+* footer参考 https://hefumiyabi.com
+* buy google ads
 * cur_item_count on show page*
 * message when uploading the images: "please be patient"*
 * "are you sure you want to ...?": 1)delete*

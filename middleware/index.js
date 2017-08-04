@@ -11,7 +11,7 @@ middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    req.flash("error", "Please login first."); //not actually shown, just an access
+    req.flash("error", "请先登录. Please login first."); //not actually shown, just an access
     res.redirect("/login");
 }
 
@@ -20,7 +20,7 @@ middlewareObj.checkItemOwnerShip = function(req, res, next) {
     if(req.isAuthenticated()) {
         Item.findById(req.params.id, function(err, foundItem) { //是否有用户登录
             if(err) {
-                req.flash("error", "Item not found.");
+                req.flash("error", "Post not found.");
                 res.redirect("back");
             } else {
                 if(foundItem.author.id.equals(req.user._id)) {
@@ -32,7 +32,7 @@ middlewareObj.checkItemOwnerShip = function(req, res, next) {
             }
         });
     } else {
-        req.flash("error", "You need to be logged in.");
+        req.flash("error", "请先登录. You need to be logged in.");
         res.redirect("back");
     }
 }
