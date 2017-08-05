@@ -1,7 +1,4 @@
-var Item        = require("../models/item"),
-    Comment     = require("../models/comment"),
-    User        = require("../models/user"),
-    Category    = require("../models/category");
+var Item        = require("../models/item");
     
 // all the middleare goes here
 var middlewareObj = {};
@@ -13,7 +10,7 @@ middlewareObj.isLoggedIn = function(req, res, next){
     }
     req.flash("error", "请先登录. Please login first."); //not actually shown, just an access
     res.redirect("/login");
-}
+};
 
 //check if the user owns the item
 middlewareObj.checkItemOwnerShip = function(req, res, next) {

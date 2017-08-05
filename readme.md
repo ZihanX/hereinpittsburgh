@@ -1,10 +1,12 @@
 =======vv13_d========
 Aug.02  deploying
-        refine everthing
+
+Aug.03  refine everthing
         two languages
         footer放二维码 邮箱
-        
-Aug.03  
+
+Aug.04  comment all the codes
+
 
 TODO: 
 * buy google ads
